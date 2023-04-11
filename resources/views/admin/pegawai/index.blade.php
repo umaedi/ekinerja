@@ -29,7 +29,7 @@
                             <a href="{{ route('admin.pegawai.create') }}" class="btn btn-primary btn-block">TAMBAH PEGAWAI</a>
                         </div>
                         <div class="col-md-2">
-                            <a href="#" class="btn btn-primary btn-block">IMPORT</a>
+                            <a href="{{ route('admin.import') }}" class="btn btn-primary btn-block">IMPORT</a>
                         </div>
                     </div>
                 </div>

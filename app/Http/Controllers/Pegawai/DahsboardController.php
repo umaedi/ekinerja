@@ -37,6 +37,7 @@ class DahsboardController extends Controller
             $data['pegawai'] = $this->pegagwai->query()->where('bagian_id', $pegawai->bagian_id)->where('role', 1)->count();
         }
 
+        $data['title'] = 'Dashboard Pegawai';
         return view('pegawai.dashboard.index', $data);
     }
 }

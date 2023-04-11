@@ -17,7 +17,7 @@ class PorfileController extends Controller
 
     public function index()
     {
-        $data['title'] = 'Profile';
+        $data['title'] = 'Profile Pegawai';
         return view('pegawai.profile.index', $data);
     }
 

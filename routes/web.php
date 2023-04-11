@@ -39,6 +39,9 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/pegawai/tugas', 'index');
         Route::get('/pegawai/tugas/lihat/{id}', 'show');
     });
+
+    Route::get('/import', [\App\Http\Controllers\Admin\ImportController::class, 'index'])->name('admin.import');
+    Route::post('/import/store', [\App\Http\Controllers\Admin\ImportController::class, 'store'])->name('admin.import.store');
 });
 
 Route::middleware('subadmin')->prefix('pegawai')->group(function () {

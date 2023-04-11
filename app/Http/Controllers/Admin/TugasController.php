@@ -5,16 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Task;
 use App\Models\Golongan;
 use App\Http\Controllers\Controller;
+use App\Models\Bagian;
 use App\Repositories\CrudRepositories;
 
 class TugasController extends Controller
 {
     protected $task;
-    protected $golongan;
-    public function __construct(Task $task, Golongan $golongan)
+    protected $bagian;
+    public function __construct(Task $task, Bagian $bagian)
     {
         $this->task = new CrudRepositories($task);
-        $this->golongan = new CrudRepositories($golongan);
+        $this->bagian = new CrudRepositories($bagian);
     }
 
     public function index()
@@ -23,8 +24,8 @@ class TugasController extends Controller
             $task = $this->task->query();
             $page = request()->get('paginate', 10);
 
-            if (request('golongan_id')) {
-                $task->where('golongan_id', request('golongan_id'));
+            if (request('bagian_id')) {
+                $task->where('bagian_id', request('bagian_id'));
             }
 
             if (request('id')) {
@@ -39,8 +40,8 @@ class TugasController extends Controller
             return view('admin.dashboard._data_table_task', $data);
         }
 
-        $data['golongans'] = $this->golongan->get();
         $data['title'] = 'Laporan Tugas Pegawai';
+        $data['bagians'] = $this->bagian->getAll();
         return view('admin.tugas.index', $data);
     }
 

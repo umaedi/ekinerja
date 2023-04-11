@@ -29,7 +29,8 @@ class TugasController extends Controller
             return view('pegawai.tugas._data_table', $data);
         }
 
-        return view('pegawai.tugas.index');
+        $data['title'] = 'Riwayat Tugas';
+        return view('pegawai.tugas.index', $data);
     }
 
     public function store(Request $request)
@@ -62,6 +63,7 @@ class TugasController extends Controller
     {
 
         $data['task'] =  $this->task->find($id);
+        $data['title'] = 'Detail Tugas';
         return view('pegawai.tugas.show', $data);
     }
 }

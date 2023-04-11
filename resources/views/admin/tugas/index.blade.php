@@ -14,10 +14,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <select class="form-control" id="golongan" name="golongan_id">
-                                <option value="">-PANGKAT/GOLONGAN--</option>
-                                @foreach ($golongans as $golongan)
-                                <option value="{{ $golongan->id }}">{{ $golongan->nama_golongan }}</option>
+                            <select class="form-control" id="bagian" name="bagian_id">
+                                <option value="">--BAGIAN--</option>
+                                @foreach ($bagians as $bagian)
+                                <option value="{{ $bagian->id }}">{{ $bagian->nama_bagian }}</option>
                                 @endforeach
                               </select>
                         </div>
@@ -66,16 +66,13 @@
     var page = 1;
     var paginate = 10;
     var bulan = '';
-    var search = '';
+    var bagian_id = '';
     var golongan = ''
         $(document).ready(function() {
             loadData();
 
-            $('#search').on('keypress', function (e) {
-                if (e.which == 13) {
-                    filterTable()
-                    return false;
-                }
+            $('#bagian').change(function() {
+                filterTable();
             });
 
             $('#perPage').change(() => {
@@ -85,18 +82,13 @@
             $('#bulan').change(function() {
                 filterTable();
             });
-
-            $('#golongan').change(() => {
-                filterTable();
-            });
-
         });
 
         function filterTable() {
             paginate = $('#perPage').val(); 
             bulan = $('#bulan').val();
-            search = $('input[name=q]').val();
-            golongan = $('select[name=golongan_id]').val();
+            search = $('input[name=search]').val();
+            bagian_id = $('select[name=bagian_id]').val();
             loadData();
         }
 
@@ -109,8 +101,7 @@
                     page: page,
                     paginate: paginate,
                     bulan: bulan,
-                    golongan_id: golongan,
-                    search: search,
+                    bagian_id: bagian_id,
                     id: "{{ request('id') }}"
                 }
             }
