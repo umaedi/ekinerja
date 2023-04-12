@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="main-content">
+<div class="main-content x-lampiran">
     <section class="section">
       <div class="section-header">
         <h1>Dashboard</h1>

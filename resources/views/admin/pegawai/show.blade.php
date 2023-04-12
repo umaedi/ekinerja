@@ -26,7 +26,7 @@
                         @csrf
                             <div class="form-group">
                                 <label for="nip">NIP</label>
-                                <input type="number" class="form-control" id="nip" value="{{ $pegawai->nip }}" name="nip">
+                                <input type="text" class="form-control" id="nip" value="{{ $pegawai->nip }}" name="nip">
                             </div>
                             <div class="form-group">
                                 <label for="name">Nama Lengkap</label>

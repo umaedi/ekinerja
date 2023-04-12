@@ -1740,6 +1740,9 @@ h6 .badge {
     background-color: #6777ef;
     box-shadow: rgba(103, 119, 239, 0.2) rgba(0, 0, 0, 0.03); }
 
+.x-active {
+  border-top: 2px solid #6777ef;
+}
 .navbar-bg {
   content: ' ';
   position: absolute;

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="main-content">
-    <section class="section">
+    <section class="section x-lampiran">
       <div class="section-header">
         <h1>Data Pegawai</h1>
         <div id="clock" class="ml-auto h5 mt-2 font-weight-bold">
@@ -13,10 +13,10 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-lg-6 mb-3">
                             <input type="text" id="search" class="form-control" placeholder="Cari Pegawai..." name="q">
                         </div>
-                        <div class="col-md-2 mb-3">
+                        <div class="col-lg-2 mb-3">
                             <select class="form-control" id="perPage">
                                 <option value="10">--PERHALAMAN--</option>
                                 <option value="10">10</option>
@@ -25,10 +25,10 @@
                                 <option value="100">100</option>
                               </select>
                         </div>
-                        <div class="col-md-2 mb-3">
+                        <div class="col-lg-2 mb-3">
                             <a href="{{ route('admin.pegawai.create') }}" class="btn btn-primary btn-block">TAMBAH PEGAWAI</a>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-lg-2">
                             <a href="{{ route('admin.import') }}" class="btn btn-primary btn-block">IMPORT</a>
                         </div>
                     </div>

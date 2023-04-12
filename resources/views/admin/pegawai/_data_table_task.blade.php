@@ -14,7 +14,7 @@
                 <th scope="row">{{ $i ++ }}</th>
                 <td>{{ $tb->nama_tugas }}</td>
                 <td>{{ $tb->tanggal }}</td>
-                <td><a href="/admin/pegawai/tugas/lihat/{{ $tb->id }}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a></td>
+                <td><a href="/admin/pegawai/tugas/lihat/{{ $tb->id }}" class="lightbox btn btn-sm btn-success"><i class="fa fa-eye"></i></a></td>
             </tr>
         @empty
             <tr>
@@ -46,4 +46,7 @@
         @endforelse
     </tbody>
 </table>
+
+<script>baguetteBox.run('.x-lampiran',{animation:'slideIn'});</script>
+<script src="{{ asset('js') }}/fakeLoader.min.js"></script>
 

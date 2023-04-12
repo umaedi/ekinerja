@@ -17,7 +17,7 @@
                 <td>{{ $tb->name }}</td>
                 <td>{{ $tb->golongan }}</td>
                 <td>{{ $tb->no_tlp }}</td>
-                <td><a href="./pegawai/lihat/{{ $tb->id }}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a></td>
+                <td><a href="./pegawai/lihat/{{ $tb->id }}" class="lightbox btn btn-sm btn-success"><i class="fa fa-eye"></i></a></td>
             </tr>
         @empty
             <tr>
@@ -54,4 +54,6 @@
         {{ $table->links('pagination.stisla-paging') }}
     </div>
 </div>
+
+
 

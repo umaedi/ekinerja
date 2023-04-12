@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="main-content">
-    <section class="section">
+    <section class="section x-lampiran">
       <div class="section-header">
         <h1>Riwayat Tugas</h1>
         <div id="clock" class="ml-auto h5 mt-2 font-weight-bold">

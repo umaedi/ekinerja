@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="{{ asset('css') }}/style.css">
   <link rel="stylesheet" href="{{ asset('css') }}/components.css">
   <link rel="stylesheet" href="{{ asset('css') }}/fakeLoader.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
 
   <!-- PWA  -->
   <link rel="apple-touch-icon" href="{{ asset('assets/img/icon/lc_icon_ekinerja.png') }}">
@@ -36,10 +37,11 @@
 
   <script src="{{ asset('js') }}/scripts.js"></script>
   <script src="{{ asset('js') }}/custom.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+  <script>baguetteBox.run('.x-lampiran',{animation:'slideIn'});</script>
   <script src="{{ asset('js') }}/fakeLoader.min.js"></script>
   <script>
-    $(document).ready(function loading(){
+    $(document).ready(function(){
         $.fakeLoader({
             timeToHide:500,
             spinner:"spinner7"

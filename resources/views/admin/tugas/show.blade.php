@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="main-content">
-    <section class="section">
+    <section class="section x-lampiran">
       <div class="section-header">
-        <h1>{{ $title }}</h1>
+        <h1>Laporan Tugas Pegawai</h1>
         <div id="clock" class="ml-auto h5 mt-2 font-weight-bold">
             <h6>Loading...</h6>
         </div>
@@ -39,7 +39,7 @@
                     @if (!empty($task->lampiran))
                     <div class="form-group">
                         <label for="lampiran">Lampiran</label>
-                        <a class="btn btn-success btn-block" href="{{ asset('storage/lampiran/' .  $task->lampiran ) }}">Lihat</a>
+                        <a class="lightbox btn btn-success btn-block" href="{{ asset('storage/lampiran/' .  $task->lampiran ) }}">Lihat</a>
                     </div>
                     @else
                     <button class="btn btn-success btn-block" disabled>Tanpa Lampiran</button>

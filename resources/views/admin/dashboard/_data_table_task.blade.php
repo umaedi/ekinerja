@@ -17,7 +17,7 @@
                 @if (empty($tb->lampiran))
                 <td>Tanpa Lampiran</td>
                 @else
-                <td><a target="_blank" class="badge badge-success" href="{{ asset('storage/lampiran/' .  $tb->lampiran ) }}">Lihat</a></td>
+                <td><a class="lightbox badge badge-success" href="{{ asset('storage/lampiran/' .  $tb->lampiran ) }}">Lihat</a></td>
                 @endif
                 <td><a href="/admin/pegawai/tugas/lihat/{{ $tb->id }}" class="badge badge-success"><i class="fa fa-eye"></i></a></td>
             </tr>
@@ -56,4 +56,7 @@
         {{ $table->links('pagination.stisla-paging') }}
     </div>
 </div>
+
+<script>baguetteBox.run('.x-lampiran',{animation:'slideIn'});</script>
+<script src="{{ asset('js') }}/fakeLoader.min.js"></script>
 
