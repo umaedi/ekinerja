@@ -31,7 +31,7 @@
           <a href="{{ route('admin.pegawai.index') }}" style="text-decoration: none">
           <div class="card card-statistic-1">
             <div class="card-icon bg-primary">
-                <i class="far fa-user"></i>
+              <i class="fas fa-users"></i>
               </div>
             <div class="card-wrap">
               <div class="card-header">

@@ -38,7 +38,7 @@ class TugasController extends Controller
         if (\request()->ajax()) {
             $request->validate([
                 'nama_tugas'    => 'required',
-                'lampiran'      => 'file|mimes:jpg,jpeg,png|max:2048',
+                'lampiran'      => 'required|file|mimes:jpg,jpeg,png|max:2048',
             ]);
         }
 

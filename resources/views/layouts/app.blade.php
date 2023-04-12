@@ -40,35 +40,32 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
   <script>baguetteBox.run('.x-lampiran',{animation:'slideIn'});</script>
   <script src="{{ asset('js') }}/fakeLoader.min.js"></script>
-  <script>
-    $(document).ready(function(){
-        $.fakeLoader({
-            timeToHide:500,
-            spinner:"spinner7"
-        });
+  <script type="text/javascript">
+  $(document).ready(function loading() {
+    $.fakeLoader({
+        timeToHide:500,
+        spinner:"spinner7"
+    });
+    sw();
 
-        jQuery(function($) {
+    jQuery(function($) {
             setInterval(function() {
                 var date = new Date(),
                     time = date.toLocaleTimeString();
                 $("#clock").html(time);
             }, 1000);
         });
+});
 
-    });
-  </script>
-
-<script src="{{ asset('/sw.js') }}"></script>
-<script>
+function sw() {
     if (!navigator.serviceWorker.controller) {
-        navigator.serviceWorker.register("/sw.js").then(function (reg) {
-            console.log("Service worker has been registered for scope: " + reg.scope);
-        });
+    navigator.serviceWorker.register("/sw.js").then(function (reg) {
+        console.log("Service worker has been registered for scope: " + reg.scope);
+    });
     }
-</script>
+}
 
-<script type="text/javascript">
-    async function transAjax(data) {
+async function transAjax(data) {
     html = null;
     data.headers = {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

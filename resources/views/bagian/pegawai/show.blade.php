@@ -25,7 +25,7 @@
                         @csrf
                             <div class="form-group">
                                 <label for="nip">NIP</label>
-                                <input type="number" class="form-control" id="nip" value="{{ $pegawai->nip }}" name="nip">
+                                <input type="text" class="form-control" id="nip" value="{{ $pegawai->nip }}" name="nip">
                             </div>
                             <div class="form-group">
                                 <label for="name">Nama Lengkap</label>
@@ -65,7 +65,7 @@
                   
                 </div>
                 <div class="card-footer text-right">
-                  <a href="./persensi/{{ request('id') }}" class="btn btn-primary">Lihat Semua</a>
+                  <a href="/pegawai/staf/tugas/lihat/{{ request('id') }}" class="btn btn-primary">Lihat Semua</a>
                 </div>
             </div>
           </div>

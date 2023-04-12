@@ -13,10 +13,10 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-8 mb-3">
                             <input type="text" id="search" class="form-control" placeholder="Cari Pegawai..." name="q">
                         </div>
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-4 mb-3">
                             <select class="form-control" id="perPage">
                                 <option value="10">Perhalaman</option>
                                 <option value="10">10</option>

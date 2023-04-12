@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; Ekinerja</title>
+  <title>Login &mdash; SEKELIK PMPTSP</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,6 +13,9 @@
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('css') }}/style.css">
+    <!-- PWA  -->
+    <link rel="apple-touch-icon" href="{{ asset('/img/icon/lc_icon_ekinerja.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
 </head>
 
 <body>
@@ -21,16 +24,11 @@
       <div class="container mt-5">
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 mt-5">
-            {{-- <div class="login-brand">
-              <img src="{{ asset('img') }}/logo/logo.png" alt="logo" width="80">
-            </div> --}}
-
             @if (session()->has('error'))
             <div class="alert alert-warning">{{ session('error') }}</div>
             @endif
-            <div class="card card-primary">
-              <div class="card-header"><h4>Login</h4></div>
-
+            <div class="card">
+              <img src="{{ asset('img') }}/logo/logo.jpg" alt="logo" class="rounded-top">
               <div class="card-body">
                 <form id="login">
                     @csrf
@@ -70,7 +68,14 @@
 
   <script src="{{ asset('js') }}/scripts.js"></script>
   <script src="{{ asset('js') }}/sweetalert.min.js"></script>
-
+  <script src="{{ asset('/sw.js') }}"></script>
+  <script>
+      if (!navigator.serviceWorker.controller) {
+          navigator.serviceWorker.register("/sw.js").then(function (reg) {
+              console.log("Service worker has been registered for scope: " + reg.scope);
+          });
+      }
+  </script>
   <script type="text/javascript">
     $(document).ready(function() {
         async function transAjax(data) {
