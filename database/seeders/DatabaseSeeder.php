@@ -66,10 +66,38 @@ class DatabaseSeeder extends Seeder
         $bagian = [
             ['nama_bagian'  => 'Perencana Ahli Muda'],
             ['nama_bagian'  => 'Bagian Umum dan Kepegawaian'],
+            ['nama_bagian'  => 'Analisis Kebiajakan Ahli Madya 1'],
+            ['nama_bagian'  => 'Analisis Kebiajakan Ahli Madya 2'],
+            ['nama_bagian'  => 'Analisis Kebiajakan Ahli Madya 3'],
+            ['nama_bagian'  => 'Analisis Kebiajakan Ahli Madya 4'],
         ];
 
         foreach ($bagian as $value) {
             \App\Models\Bagian::create($value);
+        }
+
+        $subbagian = [
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 1.1', 'bagian_id' => '3'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 1.2', 'bagian_id' => '3'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 1.3', 'bagian_id' => '3'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 1.4', 'bagian_id' => '3'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 2.1', 'bagian_id' => '4'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 2.2', 'bagian_id' => '4'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 2.3', 'bagian_id' => '4'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 2.4', 'bagian_id' => '4'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 3.1', 'bagian_id' => '5'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 3.2', 'bagian_id' => '5'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 3.3', 'bagian_id' => '5'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 3.4', 'bagian_id' => '5'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 4.1', 'bagian_id' => '6'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 4.2', 'bagian_id' => '6'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 4.3', 'bagian_id' => '6'],
+            ['nama_subbagian'  => 'Analisis Kebiajakan Ahli Madya 4.4', 'bagian_id' => '6'],
+        ];
+
+        foreach ($subbagian as $value) {
+            # code...
+            \App\Models\Subbagian::create($value);
         }
 
         // $jabatan = [

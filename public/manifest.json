@@ -1,0 +1,17 @@
+{
+    "name": "SEKELIK PMPTSP",
+    "short_name": "SEKELIK PMPTSP",
+    "start_url": "/index.php",
+    "background_color": "#fff",
+    "description": "Sistem Evaluasi Kinerja Elektronik DPMPTSP",
+    "orientation": "any",
+    "theme_color": "#6777ef",
+    "icons": [
+        {
+            "src": "assets/img/icon/lc_icon_ekinerja.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

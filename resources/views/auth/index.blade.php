@@ -55,7 +55,7 @@
               </div>
             </div>
             <div class="simple-footer">
-              Copyright &copy; Stisla 2018
+              Developed by <a href="https://api.whatsapp.com/send?phone={{ env('NO_DEV') }}" target="_blank">Umaedi KH</a>. Copyright &copy; {{ date('Y') }} Diskominfo Tuba
             </div>
           </div>
         </div>
