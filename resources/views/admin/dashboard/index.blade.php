@@ -62,6 +62,39 @@
         <div class="col-lg-12 col-md-12 col-12 col-sm-12">
           <div class="card">
             <div class="card-header">
+              <h4>LAPORAN HARIAN</h4>
+              <div class="notif">
+                <button type="button" class="btn btn-primary">
+                    Selesai <span class="badge badge-transparent">{{ $task }}</span>
+                </button>
+            </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <form id="store">
+                  @csrf
+                    <div class="form-group">
+                      <label for="nama_tugas">Tugas yang dikerjakan</label>
+                      <input type="text" class="form-control" id="nama_tugas" name="nama_tugas">
+                    </div>
+                    <div class="form-group">
+                      <label for="lampiran">Photo/Lampiran</label>
+                      <input type="file" class="form-control" id="lampiran" name="lampiran">
+                    </div>
+                    <div class="form-group">
+                      <label for="lampiran">Keterangan</label>
+                      <textarea class="form-control" style="height: 20%" name="keterangan" id="lampiran"></textarea>
+                    </div>
+                      @include('layouts._loading_submit')
+                      <button id="btn_submit" type="submit" class="btn btn-primary btn-block">BUAT LAPORAN</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+          <div class="card">
+            <div class="card-header">
               <h4>Laporan Tugas </h4>
               <div class="notif">
                 <button type="button" class="btn btn-primary">
@@ -121,5 +154,49 @@
           filterTable()
         }
       }
+      setInterval(() => {
+          loadData();
+        }, 5000);
+
+    //submit
+
+    $('#store').submit(async function store(e) {
+                e.preventDefault();
+
+                var form 	= $(this)[0]; 
+                var data 	= new FormData(form);
+
+                var param = {
+                    method: 'POST',
+                    url: '/pegawai/tugas/store',
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                }
+
+                    loadingsubmit(true);
+                    await transAjax(param).then((res) => {
+                        swal({text: res.message, icon: 'success', timer: 3000,}).then(() => {
+                            loadingsubmit(false);
+                            window.location.href = '/pegawai';
+                        });
+                    }).catch((err) => {
+                        loadingsubmit(false);
+                        swal({text: err.responseJSON.message, icon: 'error', timer: 3000,}).then(() => {
+                        window.location.href = '/pegawai';
+                    });
+                });
+
+                function loadingsubmit(state){
+                    if(state) {
+                        $('#btn_loading').removeClass('d-none');
+                        $('#btn_submit').addClass('d-none');
+                    }else {
+                        $('#btn_loading').addClass('d-none');
+                        $('#btn_submit').removeClass('d-none');
+                    }
+                }  
+            });
     </script>
 @endpush
