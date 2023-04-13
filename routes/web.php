@@ -56,7 +56,7 @@ Route::middleware('subadmin')->prefix('pegawai')->group(function () {
     });
 });
 
-Route::middleware('pegawai')->prefix('pegawai')->group(function () {
+Route::middleware(['pegawai', 'auth'])->prefix('pegawai')->group(function () {
     Route::get('/', [\App\Http\Controllers\Pegawai\DahsboardController::class, 'index']);
 
     Route::controller(\App\Http\Controllers\Pegawai\TugasController::class)->group(function () {
