@@ -119,6 +119,7 @@
 @endsection
 @push('js')
     <script type="text/javascript">
+    var page = 1;
         $(document).ready(function() {
             loadData();
         });
