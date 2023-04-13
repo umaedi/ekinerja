@@ -3,7 +3,7 @@
 <div class="main-content">
     <section class="section x-lampiran">
       <div class="section-header">
-        <h1>Riwayat Tugas</h1>
+        <h1>Laporan Tugas Pegawai</h1>
         <div id="clock" class="ml-auto h5 mt-2 font-weight-bold">
             <h6>Loading...</h6>
         </div>
@@ -12,6 +12,18 @@
         <div class="col-lg-12 col-md-12 col-12 col-sm-12">
             <div class="card mb-3">
                 <div class="card-body">
+                    <div class="form-group">
+                        <label for="nama_pegawai">Nama Pegawai</label>
+                        <input type="text" class="form-control" id="nama_pegawai" value="{{ $task->pegawai->name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="nama_pegawai">Pangkat/Golongan</label>
+                        <input type="text" class="form-control" id="nama_pegawai" value="{{ $task->pegawai->golongan }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="nama_pegawai">Bagian</label>
+                        <input type="text" class="form-control" id="nama_pegawai" value="{{ $task->bagian->nama_bagian }}">
+                    </div>
                     <div class="form-group">
                         <label for="nama_tugas">Nama Tugas</label>
                         <input type="text" class="form-control" id="nama_tugas" value="{{ $task->nama_tugas }}">

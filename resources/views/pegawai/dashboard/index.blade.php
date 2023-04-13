@@ -8,6 +8,18 @@
             <h6>Loading...</h6>
         </div>
       </div>
+      <div class="alert alert-light alert-dismissible alert-has-icon" id="alert-1" style="background-color: #e3eaef42">
+        <div class="alert-icon"><i class="fas fa-bullhorn"></i></div>
+        <div class="alert-body mt-1">
+            <button class="close" data-dismiss="alert">
+                <span>x</span>
+            </button>
+            <p class="text-justify pr-5">
+                <em>
+                    <b>Hallo {{ auth()->guard('pegawai')->user()->name }}</b>, apa kabar Anda hari ini?</em>
+            </p>
+        </div>
+        </div>
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
           <a href="{{ route('pegawai.profile') }}" style="text-decoration: none">

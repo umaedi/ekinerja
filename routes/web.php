@@ -51,7 +51,8 @@ Route::middleware('subadmin')->prefix('pegawai')->group(function () {
     });
 
     Route::controller(\App\Http\Controllers\Bagian\TugasController::class)->group(function () {
-        Route::get('/staf/tugas/lihat/{id}', 'show');
+        Route::get('/staf/tugas/lihat/{id}', 'index');
+        Route::get('/staf/tugas/show/{id}', 'show');
     });
 });
 
