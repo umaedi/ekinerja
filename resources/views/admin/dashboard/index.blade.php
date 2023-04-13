@@ -158,6 +158,11 @@
           loadData();
         }, 5000);
 
+    //paginate
+    function loadPaginate(to) {
+        page = to
+        filterTable()
+    }
     //submit
 
     $('#store').submit(async function store(e) {
