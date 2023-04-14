@@ -15,8 +15,8 @@
               <span>x</span>
           </button>
           <p class="text-justify pr-5">
-              <em>
-                  <b>Hallo {{ auth()->user()->name }}</b>, apa kabar Anda hari ini?</em>
+              {{-- <em><b>Hallo {{ auth()->user()->name }}</b>, apa kabar Anda hari ini?</em> --}}
+              <em><b>Perhatian!</b> Izin pak, untuk sementara waktu bapak blm bisa membuat laporan tugas karena sedang saya perbaiki</em>
           </p>
       </div>
   </div>
@@ -38,6 +38,23 @@
           </div>
         </a>
         </div>
+        {{-- <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+          <a href="{{ route('admin.tugas') }}" style="text-decoration: none">
+          <div class="card card-statistic-1">
+            <div class="card-icon bg-primary">
+              <i class="fas fa-laptop"></i>
+            </div>
+            <div class="card-wrap">
+              <div class="card-header">
+                <h4>Riwayat Tugas</h4>
+              </div>
+              <div class="card-body">
+                {{ $tasks_admin }}
+              </div>
+            </div>
+          </div>
+        </a>
+        </div> --}}
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
           <a href="{{ route('admin.pegawai.index') }}" style="text-decoration: none">
@@ -62,43 +79,10 @@
         <div class="col-lg-12 col-md-12 col-12 col-sm-12">
           <div class="card">
             <div class="card-header">
-              <h4>LAPORAN HARIAN</h4>
-              <div class="notif">
-                <button type="button" class="btn btn-primary">
-                    Selesai <span class="badge badge-transparent">{{ $task }}</span>
-                </button>
-            </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <form id="store">
-                  @csrf
-                    <div class="form-group">
-                      <label for="nama_tugas">Tugas yang dikerjakan</label>
-                      <input type="text" class="form-control" id="nama_tugas" name="nama_tugas">
-                    </div>
-                    <div class="form-group">
-                      <label for="lampiran">Photo/Lampiran</label>
-                      <input type="file" class="form-control" id="lampiran" name="lampiran">
-                    </div>
-                    <div class="form-group">
-                      <label for="lampiran">Keterangan</label>
-                      <textarea class="form-control" style="height: 20%" name="keterangan" id="lampiran"></textarea>
-                    </div>
-                      @include('layouts._loading_submit')
-                      <button id="btn_submit" type="submit" class="btn btn-primary btn-block">BUAT LAPORAN</button>
-                  </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-12 col-md-12 col-12 col-sm-12">
-          <div class="card">
-            <div class="card-header">
               <h4>Laporan Tugas </h4>
               <div class="notif">
                 <button type="button" class="btn btn-primary">
-                    Selesai <span class="badge badge-transparent">{{ $task }}</span>
+                    Selesai <span class="badge badge-transparent">{{ $tasks }}</span>
                 </button>
                 <a href="/admin/pegawai/tugas" type="button" class="btn btn-primary">
                     Lihat

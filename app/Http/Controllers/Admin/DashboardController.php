@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Pegawai;
 use App\Models\Task;
 use App\Repositories\CrudRepositories;
-use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
@@ -26,7 +25,8 @@ class DashboardController extends Controller
         };
 
         $data['pegawai'] = Pegawai::count();
-        $data['task'] = $task->whereDate('tanggal', '=', date('Y-m-d'))->count();
+        $data['tasks'] = $task->whereDate('tanggal', '=', date('Y-m-d'))->count();
+        $data['tasks_admin'] = $task->where('pegawai_id', auth()->user()->user_id)->count();
         return view('admin.dashboard.index', $data);
     }
 }

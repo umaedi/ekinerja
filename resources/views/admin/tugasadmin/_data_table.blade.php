@@ -2,8 +2,8 @@
     <thead class="thead-dark">
         <tr>
         <th scope="col">#</th>
-        <th scope="col">Nama Pegawai</th>
         <th scope="col">Nama Tugas</th>
+        <th scope="col">Tanggal</th>
         <th scope="col">Lampiran</th>
         <th scope="col">Lihat</th>
         </tr>
@@ -12,19 +12,14 @@
         @forelse ($table as $key => $tb)
             <tr>
                 <th scope="row">{{ $table->firstItem() + $key }}</th>
-                <td>{{ $tb->pegawai->name ?? auth()->user()->name }}</td>
                 <td>{{ $tb->nama_tugas }}</td>
+                <td>{{ $tb->tanggal }}</td>
                 @if (empty($tb->lampiran))
                 <td>Tanpa Lampiran</td>
                 @else
                 <td><a class="lightbox badge badge-success" href="{{ asset('storage/lampiran/' .  $tb->lampiran ) }}">Lihat</a></td>
                 @endif
-
-                @if ($tb->pegawai_id == '120002')
-                <td><a href="/admin/tugas/lihat/{{ $tb->id }}" class="badge badge-success"><i class="fa fa-eye"></i></a></td>
-                @else
-                <td><a href="/admin/pegawai/tugas/lihat/{{ $tb->id }}" class="badge badge-success"><i class="fa fa-eye"></i></a></td>
-                @endif
+                <td><a href="./riwayat/lihat/{{ $tb->id }}" class="badge badge-success"><i class="fa fa-eye"></i></a></td>
             </tr>
         @empty
             <tr>
@@ -62,6 +57,5 @@
     </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
 <script>baguetteBox.run('.x-lampiran',{animation:'slideIn'});</script>
-<script src="{{ asset('js') }}/fakeLoader.min.js"></script>
-

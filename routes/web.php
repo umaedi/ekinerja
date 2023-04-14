@@ -40,6 +40,11 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/pegawai/tugas/lihat/{id}', 'show');
     });
 
+    Route::controller(\App\Http\Controllers\Admin\TugasadminController::class)->group(function () {
+        Route::get('/tugas', 'index')->name('admin.tugas');
+        Route::post('/tugas/store', 'store')->name('admin.tugas.store');
+    });
+
     Route::get('/import', [\App\Http\Controllers\Admin\ImportController::class, 'index'])->name('admin.import');
     Route::post('/import/store', [\App\Http\Controllers\Admin\ImportController::class, 'store'])->name('admin.import.store');
 });

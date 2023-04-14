@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         \App\Models\User::create([
+            'user_id'   => '120002',
+            'bagian_id' => '5545',
             'nip'       => '197601XXXXXX',
             'name'      => 'Umaedi KH',
             'email'     => 'devkh@gmail.com',
