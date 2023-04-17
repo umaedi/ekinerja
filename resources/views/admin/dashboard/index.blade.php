@@ -15,8 +15,8 @@
               <span>x</span>
           </button>
           <p class="text-justify pr-5">
-              {{-- <em><b>Hallo {{ auth()->user()->name }}</b>, apa kabar Anda hari ini?</em> --}}
-              <em><b>Perhatian!</b> Izin pak, untuk sementara waktu bapak blm bisa membuat laporan tugas karena sedang saya perbaiki</em>
+              <em><b>Hallo {{ auth()->user()->name }}</b>, apa kabar Anda hari ini?</em>
+              {{-- <em><b>Perhatian!</b> Izin pak, untuk sementara waktu bapak blm bisa membuat laporan tugas karena sedang saya perbaiki</em> --}}
           </p>
       </div>
   </div>
