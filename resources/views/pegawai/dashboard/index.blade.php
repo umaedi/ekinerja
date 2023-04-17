@@ -43,7 +43,7 @@
           <a href="{{ route('bagian.pegawai') }}" style="text-decoration: none">
           <div class="card card-statistic-1">
             <div class="card-icon bg-primary">
-              <i class="far fa-user"></i>
+              <i class="fas fa-users"></i>
             </div>
             <div class="card-wrap">
               <div class="card-header">
@@ -61,7 +61,7 @@
           <a href="{{ route('pegawai.tugas') }}" style="text-decoration: none">
           <div class="card card-statistic-1">
             <div class="card-icon bg-primary">
-                <i class="far fa-user"></i>
+              <i class="fas fa-laptop"></i>
               </div>
             <div class="card-wrap">
               <div class="card-header">
