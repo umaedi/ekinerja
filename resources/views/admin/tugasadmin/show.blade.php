@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nama_pegawai">Pangkat/Golongan</label>
-                        <input type="text" class="form-control" id="nama_pegawai" value="{{ auth()->user()->golongan }}">
+                        <input type="text" class="form-control" id="nama_pegawai" value="{{ auth()->user()->bagian }}">
                     </div>
                     <div class="form-group">
                         <label for="nama_tugas">Nama Tugas</label>

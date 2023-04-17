@@ -124,12 +124,12 @@
             await transAjax(param).then((res) => {
                 swal({text: res.message, icon: 'success', timer: 3000,}).then(() => {
                     loadingsubmit(false);
-                    window.location.href = '/admin/tugas';
+                    window.location.href = '/admin';
                 });
             }).catch((err) => {
                 loadingsubmit(false);
                 swal({text: err.responseJSON.message, icon: 'error', timer: 3000,}).then(() => {
-                window.location.href = '/admin/tugas';
+                window.location.href = '/admin';
             });
         });
 
