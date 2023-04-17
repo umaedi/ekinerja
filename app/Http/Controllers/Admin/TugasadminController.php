@@ -22,7 +22,8 @@ class TugasadminController extends Controller
         }
 
         $data['tasks'] = $this->task->query()->where('pegawai_id', auth()->user()->user_id)->count();
-        return view('admin.tugasadmin.index');
+        $data['title'] = 'Buat Laporan';
+        return view('admin.tugasadmin.index', $data);
     }
 
     public function store(Request $request)
@@ -49,5 +50,12 @@ class TugasadminController extends Controller
         }
 
         return $this->sendResponseCreate('');
+    }
+
+    public function show($id)
+    {
+        $data['task'] =  $this->task->find($id);
+        $data['title'] = 'Detail Tugas';
+        return view('admin.tugasadmin.show', $data);
     }
 }

@@ -21,7 +21,7 @@
                 @endif
 
                 @if ($tb->pegawai_id == '120002')
-                <td><a href="/admin/tugas/lihat/{{ $tb->id }}" class="badge badge-success"><i class="fa fa-eye"></i></a></td>
+                <td><a href="/admin/tugas/show/{{ $tb->id }}" class="badge badge-success"><i class="fa fa-eye"></i></a></td>
                 @else
                 <td><a href="/admin/pegawai/tugas/lihat/{{ $tb->id }}" class="badge badge-success"><i class="fa fa-eye"></i></a></td>
                 @endif

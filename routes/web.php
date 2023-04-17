@@ -43,6 +43,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::controller(\App\Http\Controllers\Admin\TugasadminController::class)->group(function () {
         Route::get('/tugas', 'index')->name('admin.tugas');
         Route::post('/tugas/store', 'store')->name('admin.tugas.store');
+        Route::get('/tugas/show/{id}', 'show')->name('admin.tugas.show');
     });
 
     Route::get('/import', [\App\Http\Controllers\Admin\ImportController::class, 'index'])->name('admin.import');

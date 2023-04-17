@@ -15,7 +15,7 @@
                 <h4>LAPORAN TUGAS</h4>
                 <div class="notif">
                   <button type="button" class="btn btn-primary">
-                      Selesai <span class="badge badge-transparent">3</span>
+                      Selesai <span class="badge badge-transparent">{{ $tasks }}</span>
                   </button>
               </div>
               </div>

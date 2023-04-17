@@ -21,7 +21,7 @@
       </div>
   </div>
       <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
           <a href="{{ route('admin.profile') }}" style="text-decoration: none">
           <div class="card card-statistic-1">
             <div class="card-icon bg-primary">
@@ -38,7 +38,7 @@
           </div>
         </a>
         </div>
-        {{-- <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
           <a href="{{ route('admin.tugas') }}" style="text-decoration: none">
           <div class="card card-statistic-1">
             <div class="card-icon bg-primary">
@@ -54,9 +54,9 @@
             </div>
           </div>
         </a>
-        </div> --}}
+        </div>
 
-        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
           <a href="{{ route('admin.pegawai.index') }}" style="text-decoration: none">
           <div class="card card-statistic-1">
             <div class="card-icon bg-primary">
