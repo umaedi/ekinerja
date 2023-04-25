@@ -3,7 +3,7 @@
 <div class="main-content x-lampiran">
     <section class="section">
       <div class="section-header">
-        <h1>Dashboard</h1>
+        <h5>Dashboard Sekelik PMPTSP</h5>
         <div id="clock" class="ml-auto h5 mt-2 font-weight-bold">
             <h6>Loading...</h6>
         </div>
