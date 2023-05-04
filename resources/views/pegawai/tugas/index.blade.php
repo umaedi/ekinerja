@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <select class="form-control" id="perPage" name="paginate">
-                                <option value="10">--PERHALAMAN--</option>
+                                <option value="5">--PERHALAMAN--</option>
                                 <option value="10">10</option>
                                 <option value="25">25</option>
                                 <option value="50">50</option>
@@ -84,6 +84,7 @@
             data: {
                 load: 'table',
                 bulan: bulan,
+                page: page,
                 paginate: paginate,
             }
         }
@@ -104,11 +105,12 @@
             $('#loading').addClass('d-none');
         }
     }
+  }
 
-    function loadPaginate(to) {
+  function loadPaginate(to) {
       page = to
       filterTable()
-    }
-  }
+}
+
 </script>
 @endpush
