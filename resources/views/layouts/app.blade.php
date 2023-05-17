@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
 
   <!-- PWA  -->
-  <link rel="apple-touch-icon" href="{{ asset('assets/img/icon/xxlc_icon_ekinerja.png') }}">
+  <link rel="apple-touch-icon" href="{{ asset('assets/img/icon/xxxlc_icon_ekinerja.png') }}">
   <link rel="manifest" href="{{ asset('/manifest.json') }}">
   @stack('css')
 </head>

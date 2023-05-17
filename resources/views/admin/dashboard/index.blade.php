@@ -3,7 +3,7 @@
 <div class="main-content x-lampiran">
     <section class="section">
       <div class="section-header">
-        <h5>Dashboard Sekelik PMPTSP</h5>
+        <h5>Sekelik DPMPTSP</h5>
         <div id="clock" class="ml-auto h5 mt-2 font-weight-bold">
             <h6>Loading...</h6>
         </div>
@@ -108,12 +108,18 @@
             loadData();
         });
 
+        function filterTable()
+        {
+          loadData();
+        }
+
         async function loadData() {
             var param = {
                 method: 'GET',
                 url: '{{ url()->current() }}',
                 data: {
                     load: 'table',
+                    page: page,
                 }
             }
             loading(true);
@@ -134,14 +140,11 @@
             }
         }
 
-        function loadPaginate(to) {
-          page = to
-          filterTable()
-        }
       }
-      setInterval(() => {
-          loadData();
-        }, 5000);
+
+      // setInterval(() => {
+      //     loadData();
+      //   }, 5000);
 
     //paginate
     function loadPaginate(to) {
