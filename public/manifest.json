@@ -6,10 +6,10 @@
     "description": "Sistem Evaluasi Kinerja Elektronik DPMPTSP",
     "display": "standalone",
     "orientation": "any",
-    "theme_color": "#0a5414",
+    "theme_color": "#6777ef",
     "icons": [
         {
-            "src": "/img/icon/xxxlc_icon_ekinerja.png",
+            "src": "/img/icon/xxxxlc_icon_ekinerja.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
