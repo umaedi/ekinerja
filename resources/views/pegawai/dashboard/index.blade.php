@@ -16,7 +16,7 @@
             </button>
             <p class="text-justify pr-5">
                 <em>
-                    <b>Hallo {{ auth()->guard('pegawai')->user()->name }}</b>, apa kabar Anda hari ini?</em>
+                    <b>Hallo {{ auth()->guard('pegawai')->user()->name }}</b>, Saat ini aplikasi masih sedang dalam perbaikan</em>
             </p>
         </div>
         </div>
