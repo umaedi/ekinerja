@@ -46,7 +46,6 @@ class PegawaiController extends Controller
         }
 
         $data['title'] = 'Data Pegawai';
-        $data['golongans'] = $this->golongan->getAll();
         return view('admin.pegawai.index', $data);
     }
 

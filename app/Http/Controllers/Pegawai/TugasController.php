@@ -25,7 +25,7 @@ class TugasController extends Controller
                 $task->whereMonth('tanggal', request('bulan'));
             }
 
-            $data['table'] = $task->where('pegawai_id', auth()->guard('pegawai')->user()->id)->paginate($page);
+            $data['table'] = $task->where('pegawai_id', auth()->guard('pegawai')->user()->id)->latest()->paginate($page);
             return view('pegawai.tugas._data_table', $data);
         }
 
@@ -42,19 +42,11 @@ class TugasController extends Controller
             ]);
         }
 
-        if ($request->file('lampiran')) {
-            $data = $request->except('_token');
-            $data['pegawai_id'] = auth()->guard('pegawai')->user()->id;
-            $data['bagian_id'] = auth()->guard('pegawai')->user()->bagian_id;
-            $data['tanggal'] = date('Y-m-d, H:i:s');
-            $this->task->store($data, true, 'public/lampiran');
-        } else {
-            $data = $request->except('_token');
-            $data['pegawai_id'] = auth()->guard('pegawai')->user()->id;
-            $data['bagian_id'] = auth()->guard('pegawai')->user()->bagian_id;
-            $data['tanggal'] = date('Y-m-d, H:i:s');
-            $this->task->store($data);
-        }
+        $data = $request->except('_token');
+        $data['pegawai_id'] = auth()->guard('pegawai')->user()->id;
+        $data['bagian_id'] = auth()->guard('pegawai')->user()->bagian_id;
+        $data['tanggal'] = date('Y-m-d, H:i:s');
+        $this->task->store($data, true, 'public/lampiran');
 
         return $this->sendResponseCreate('');
     }

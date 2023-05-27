@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('pegawais', function (Blueprint $table) {
             $table->id();
             $table->foreignId('bagian_id');
+            $table->string('kode_pegawai')->unique();
             $table->string('nip')->unique();
             $table->string('name');
             $table->string('golongan');
