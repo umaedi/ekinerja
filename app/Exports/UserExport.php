@@ -11,6 +11,6 @@ class UserExport implements FromCollection
      */
     public function collection()
     {
-        return \App\Models\Pegawai::all();
+        // return \App\Models\Pegawai::all();
     }
 }
