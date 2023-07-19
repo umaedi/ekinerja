@@ -115,7 +115,19 @@
   </div>
 @endsection
 @push('js')
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD8y5ZQcuol7vxOkXii_wsHqYhCNL0uEM&libraries=geometry&callback"></script>
     <script type="text/javascript">
+
+    // $('#lampiran').click(function(e) {
+    //   var test = 1;
+    //   if (e.isTrusted) {
+    //     e.preventDefault();
+    //   } else if(test > 2) {
+    //     console.log('ok');
+    //   }else {
+    //     e.target.click();
+    //   }
+    // });
 
     // fungsi untuk mengompres gambar
     const compressImage = async (file, { quality = 1, type = file.type }) => {
@@ -181,10 +193,61 @@
           $('#store').submit(async function store(e) {
                 e.preventDefault();
 
-                var form 	= $(this)[0]; 
-                var data 	= new FormData(form);
+              if(navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+              }else {
+                  swal({title: 'Oops!', text:'Maaf, browser Anda tidak mendukung geolokasi HTML5.', icon: 'error', timer: 3000,});
+              }
 
-                var param = {
+              function successCallback(position) {
+                  getCurrentPosition(position);
+              }
+
+              function errorCallback(error) {
+                  if(error.code == 1) {
+                      swal({title: 'Oops!', text:'Mohon untuk mengaktifkan lokasi Anda', icon: 'error', timer: 3000,});
+                  } else if(error.code == 2) {
+                      swal({title: 'Oops!', text:'Jaringan tidak aktif atau layanan penentuan posisi tidak dapat dijangkau.', icon: 'error', timer: 3000,});
+                  } else if(error.code == 3) {
+                      swal({title: 'Oops!', text:'Waktu percobaan habis sebelum bisa mendapatkan data lokasi.', icon: 'error', timer: 3000,});
+                  } else {
+                      swal({title: 'Oops!', text:'Waktu percobaan habis sebelum bisa mendapatkan data lokasi.', icon: 'error', timer: 3000,});
+                  }
+              }
+
+              // //radius
+              var currentLocation = { lat: -5.3774079, lng: 105.2496447 };
+              var radius = 1000;
+
+              function getCurrentPosition(position)
+              {
+                  var userLocation = {
+                      lat: position.coords.latitude,
+                      lng: position.coords.longitude
+                  };
+
+                  var distance = google.maps.geometry.spherical.computeDistanceBetween(
+                      new google.maps.LatLng(currentLocation),
+                      new google.maps.LatLng(userLocation)
+                  );
+
+                  // Jika jarak kurang dari radius
+                  if (distance < radius) {
+                      taskStore();
+                  } else {
+                      swal({title: 'Oops!', text:'Mohon Maaf Sepertinya Anda Diluar Radius!', icon: 'error', timer: 3000,}).then(() => {
+                          window.location.href = '/pegawai';
+                      });
+                  }
+              }
+
+              function taskStore()
+              {
+                  var form 	= $(this)[0]; 
+                  var data 	= new FormData(form);
+              }
+
+              var param = {
                     method: 'POST',
                     url: '/pegawai/tugas/store',
                     data: data,
@@ -193,7 +256,7 @@
                     cache: false,
                 }
 
-                    loadingsubmit(true);
+                loadingsubmit(true);
                     await transAjax(param).then((res) => {
                         swal({text: res.message, icon: 'success', timer: 3000,}).then(() => {
                             loadingsubmit(false);
@@ -214,7 +277,7 @@
                         $('#btn_loading').addClass('d-none');
                         $('#btn_submit').removeClass('d-none');
                     }
-                }  
+                } 
             });
         });
     </script>

@@ -111,12 +111,8 @@
             await transAjax(param).then((res) => {
                 swal({text: res.message, icon: 'success', timer: 3000,}).then(() => {
                     loadingsubmit(false);
-                    if(res.role === 1) {
-                      window.location.href = '/admin';
-                    }else {
-                      console.log('ok');
-                      window.location.href = '/pegawai';
-                    }
+                    window.location.href = '/dashboard';
+                    
                 });
             }).catch((err) => {
                 loadingsubmit(false);

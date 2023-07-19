@@ -11,9 +11,6 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('css') }}/style.css">
   <link rel="stylesheet" href="{{ asset('css') }}/components.css">
-  <link rel="stylesheet" href="{{ asset('css') }}/fakeLoader.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
-
   <!-- PWA  -->
   <link rel="apple-touch-icon" href="{{ asset('img/icon/xxxxxxlc_icon_ekinerja.png') }}">
   <link rel="manifest" href="{{ asset('/manifest.json') }}">
@@ -32,29 +29,23 @@
   <!-- General JS Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" async=""></script>
   <script src="{{ asset('js') }}/stisla.js"></script>
   <script src="{{ asset('js') }}/sweetalert.min.js"></script>
 
   <script src="{{ asset('js') }}/scripts.js"></script>
   <script src="{{ asset('js') }}/custom.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-  <script>baguetteBox.run('.x-lampiran',{animation:'slideIn'});</script>
-  <script src="{{ asset('js') }}/fakeLoader.min.js"></script>
   <script type="text/javascript">
   $(document).ready(function loading() {
-    $.fakeLoader({
-        timeToHide:500,
-        spinner:"spinner7"
-    });
     sw();
 
     jQuery(function($) {
-            setInterval(function() {
-                var date = new Date(),
-                    time = date.toLocaleTimeString();
-                $("#clock").html(time);
-            }, 1000);
-        });
+        setInterval(function() {
+            var date = new Date(),
+                time = date.toLocaleTimeString();
+            $("#clock").html(time);
+        }, 1000);
+    });
 });
 
 function sw() {

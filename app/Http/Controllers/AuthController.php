@@ -11,7 +11,7 @@ class AuthController extends Controller
     public function index()
     {
         if (auth()->guard('pegawai')->check()) {
-            return redirect('/pegawai');
+            return redirect('/dashboard');
         } else {
             return view('auth.index');
         }
@@ -19,6 +19,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+
         if (\request()->ajax()) {
 
             $credentials = $request->validate([
@@ -26,32 +27,18 @@ class AuthController extends Controller
                 'password'  => 'required'
             ]);
 
-            $pegawai = Pegawai::where([
-                'email'     => $request->email,
-                'password'  => $request->password,
-            ])->first();
-
-            if (!$pegawai) {
-
-                if (Auth::attempt($credentials)) {
-                    $request->session()->regenerate();
-                    return response()->json([
-                        'success'   => true,
-                        'message'   => 'Anda berhasil login',
-                    ], 200);
-                }
-
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate();
                 return response()->json([
-                    'success'   => false,
-                    'message'   => 'Email Atau Password Salah!',
-                ], 302);
+                    'success'   => true,
+                    'message'   => 'Anda berhasil login',
+                ], 200);
             }
 
-            auth()->guard('pegawai')->login($pegawai);
             return response()->json([
-                'success'   => true,
-                'message'   => 'Anda berhasil login',
-            ], 200);
+                'success'   => false,
+                'message'   => 'Email Atau Password Salah!',
+            ], 302);
         }
     }
 

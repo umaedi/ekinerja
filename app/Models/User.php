@@ -18,13 +18,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'pegawai_id',
-        'bagian_id',
+        'bidang_id',
         'nip',
-        'name',
+        'nama',
         'email',
         'no_tlp',
         'img',
+        'level',
         'password',
     ];
 
@@ -46,4 +46,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function task()
+    {
+        return $this->hasMany(Task::class);
+    }
+
+    public function bidang()
+    {
+        return $this->belongsTo(Bidang::class);
+    }
 }

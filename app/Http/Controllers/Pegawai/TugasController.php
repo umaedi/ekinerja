@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Pegawai;
 
-use App\Http\Controllers\Api as Controller;
 use App\Models\Task;
-use App\Repositories\CrudRepositories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Repositories\CrudRepositories;
+use App\Http\Controllers\Api as Controller;
 
 class TugasController extends Controller
 {
@@ -25,7 +26,14 @@ class TugasController extends Controller
                 $task->whereMonth('tanggal', request('bulan'));
             }
 
-            $data['table'] = $task->where('pegawai_id', auth()->guard('pegawai')->user()->id)->latest()->paginate($page);
+            if (auth()->guard('pegawai')->user()->role == 1) {
+                $data['table'] = $task->where('role', 1)->orWhere('role', 2)->orWhere('role', 3)->latest()->paginate($page);
+            } elseif (auth()->guard('pegawai')->user()->role == 2) {
+                $data['table'] = $task->where('role', 2)->orWhere('role', 3)->latest()->paginate($page);
+            } else {
+                $data['table'] = $task->where('pegawai_id', auth()->guard('pegawai')->user()->pegawai_id)->latest()->paginate($page);
+            }
+
             return view('pegawai.tugas._data_table', $data);
         }
 
@@ -44,11 +52,22 @@ class TugasController extends Controller
 
         $data = $request->except('_token');
         $data['pegawai_id'] = auth()->guard('pegawai')->user()->id;
-        $data['bagian_id'] = auth()->guard('pegawai')->user()->bagian_id;
-        $data['tanggal'] = date('Y-m-d, H:i:s');
-        $this->task->store($data, true, 'public/lampiran');
+        $data['bagian_id']  = auth()->guard('pegawai')->user()->bagian_id;
+        $data['role']       = auth()->guard('pegawai')->user()->role;
+        $data['tanggal']    = now();
 
-        return $this->sendResponseCreate('');
+        DB::beginTransaction();
+
+        try {
+            $this->task->store($data, true, 'public/lampiran');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return $this->sendResponseError($th);
+        }
+
+        DB::commit();
+
+        return $this->sendResponseCreate($data);
     }
 
     public function show($id)

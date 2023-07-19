@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('jabatans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('bidang_id')->nullable();
-            $table->string('level');
-            $table->string('nama_tugas');
-            $table->string('keterangan')->nullable();
-            $table->string('lampiran')->nullable();
+            $table->string('nama_jabatan');
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('jabatans');
     }
 };

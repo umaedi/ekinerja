@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <form id="store">
                         <div class="custom-file">
-                            <input type="file" class="form-control" name="file">
+                            <input type="file" class="form-control" name="user">
                           </div>
                           @include('layouts._loading_submit')
                           <button id="btn_submit" type="submit" class="btn btn-primary mt-3">Import</button>
@@ -38,7 +38,7 @@
 
                 var param = {
                     method: 'POST',
-                    url: '/admin/import/store',
+                    url: '/user/store',
                     data: data,
                     processData: false,
                     contentType: false,
@@ -53,9 +53,7 @@
                         });
                     }).catch((err) => {
                         loadingsubmit(false);
-                        swal({text: err.responseJSON.message, icon: 'error', timer: 3000,}).then(() => {
-                        window.location.href = '/admin/pegawai/tambah';
-                    });
+                        swal({text: err.responseJSON.message, icon: 'error', timer: 3000,});
                 });
 
                 function loadingsubmit(state){

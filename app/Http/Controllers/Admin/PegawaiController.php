@@ -87,10 +87,11 @@ class PegawaiController extends Controller
 
     public function update(Request $request, $id)
     {
-        if (\request()->ajax()) {
-            $data =  $this->pegawai->update($id, $request->all());
-            return $this->sendResponseUpdate($data);
-        }
+        dd($request->all());
+        // if (\request()->ajax()) {
+        //     $data =  $this->pegawai->update($id, $request->all());
+        //     return $this->sendResponseUpdate($data);
+        // }
     }
 
     public function destory($id)
