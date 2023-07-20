@@ -38,8 +38,8 @@
                 <h4>Data Diri</h4>
               </div>
               <div class="card-body">
-                @if (strlen(auth()->user()->nama) > 12)
-                    {{ Str::of(auth()->user()->nama)->limit(12) }}
+                @if (strlen(auth()->user()->nama) > 16)
+                    {{ Str::of(auth()->user()->nama)->limit(16) }}
                 @else
                 {{ auth()->user()->nama }}
                 @endif
@@ -116,7 +116,11 @@
             <h4>Data diri</h4>
           </div>
           <div class="card-body">
+            @if (strlen(auth()->user()->nama) > 16)
+            {{ Str::of(auth()->user()->nama)->limit(16) }}
+            @else
             {{ auth()->user()->nama }}
+            @endif
           </div>
         </div>
       </div>
