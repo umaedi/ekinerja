@@ -21,7 +21,7 @@
                         </div>
                         <div class="form-group">
                             <label for="lampiran">Photo/Lampiran</label>
-                            <input type="file" class="form-control my-image-field" id="lampiran" name="lampiran">
+                            <input type="file" class="form-control my-image-field" id="lampiran" accept=".png, .jpg, .jpeg" name="lampiran">
                         </div>
                         <div class="form-group">
                             <label for="lampiran">Keterangan</label>

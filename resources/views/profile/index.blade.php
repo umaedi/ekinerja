@@ -42,7 +42,7 @@
                         @method('PUT')
                             <div class="form-group">
                                 <label for="nip">Photo</label>
-                                <input type="file" class="form-control image" id="photo" name="img">
+                                <input type="file" class="form-control image" id="photo" accept=".png, .jpg, .jpeg" name="img">
                                 <input type="hidden" name="newimage" id="newImage">
                             </div>
                             <div class="form-group">
