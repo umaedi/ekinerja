@@ -30,10 +30,8 @@
   </ul>
 </nav>
   <!-- Bottom Navbar -->
-@auth
+@if (auth()->user()->level != 'staf')
 @include('layouts._navigasi_admin')
-@elseif(auth()->guard('pegawai')->user()->role === 3 || auth()->guard('pegawai')->user()->role === 2)
-@include('layouts._navigasi_sekretaris')
 @else
 @include('layouts._navigasi_user')
-@endauth
+@endif

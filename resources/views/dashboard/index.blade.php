@@ -28,11 +28,11 @@
             <div class="card-icon bg-primary">
              <img data-src="{{ auth()->user()->img }}" class="lazyload" alt="profile" width="100">
             </div>
-            <div class="card-wrap">
+            <div class="card-wrap text-truncate">
               <div class="card-header">
                 <h4>Data Diri</h4>
               </div>
-              <div class="card-body">
+              <div class="card-body text-nowrap" style="width: 8rem; display: block;">
                 {{ auth()->user()->nama }}
               </div>
             </div>
