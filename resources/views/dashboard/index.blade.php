@@ -15,8 +15,13 @@
               <span>x</span>
           </button>
           <p class="text-justify pr-5">
+              @if (auth()->user()->level == 'kadis')
+              <em><b>Pemberitahuan!</b>Aplikasi Sekelik ada beberapa update. Untuk data sudah saya backup</em>
+              @elseif(auth()->user()->level == 'kabid')
+              <em><b>Pemberitahuan!</b>Aplikasi Sekelik ada beberapa update. Untuk data sudah saya backup, jika ada data yang tidak sesuai silakan hubungi saya klik <span><a href="https://api.whatsapp.com/send?phone={{ env('NO_DEV') }}" target="_blank">Umaedi KH</a></span></em>
+              @else
               <em><b>Hallo {{ auth()->user()->nama }}</b>, apa kabar Anda hari ini?</em>
-              {{-- <em><b>Perhatian!</b> Izin pak, untuk sementara waktu bapak blm bisa membuat laporan tugas karena sedang saya perbaiki</em> --}}
+              @endif
           </p>
       </div>
   </div>
@@ -28,12 +33,16 @@
             <div class="card-icon bg-primary">
              <img data-src="{{ auth()->user()->img }}" class="lazyload" alt="profile" width="100">
             </div>
-            <div class="card-wrap text-truncate">
+            <div class="card-wrap">
               <div class="card-header">
                 <h4>Data Diri</h4>
               </div>
-              <div class="card-body text-nowrap" style="width: 8rem; display: block;">
+              <div class="card-body">
+                @if (strlen(auth()->user()->nama) > 12)
+                    {{ Str::of(auth()->user()->nama)->limit(12) }}
+                @else
                 {{ auth()->user()->nama }}
+                @endif
               </div>
             </div>
           </div>
