@@ -232,7 +232,7 @@
     //paginate
     function loadPaginate(to) {
         page = to
-        filterTable()
+        loadData()
     }
     //submit
 

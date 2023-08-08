@@ -25,10 +25,10 @@
                                 <option value="100">100</option>
                               </select>
                         </div>
-                        <div class="col-lg-2 mb-3">
+                        <div class="col-lg-2 mb-2">
                             <a href="/pegawai/create" class="btn btn-primary btn-block">TAMBAH PEGAWAI</a>
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-2 mb-2">
                             <a href="/import" class="btn btn-primary btn-block">IMPORT</a>
                         </div>
                         <div class="col-lg-2">

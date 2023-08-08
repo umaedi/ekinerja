@@ -24,7 +24,7 @@ class TugasController extends Controller
             $task = $this->task->Query();
             $page = request()->get('paginate', 10);
             if (\request('bulan')) {
-                $task->whereMonth('tanggal', request('bulan'));
+                $task->whereMonth('created_at', request('bulan'));
             }
             $data['table'] = $task->where('user_id', auth()->user()->id)->latest()->paginate($page);
             return view('tugas._data_table', $data);

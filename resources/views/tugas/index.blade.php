@@ -196,7 +196,6 @@
         }
 
         await transAjax(param).then((res) => {
-          console.log(res);
           $('#x-modal').html(res)
         });
       }

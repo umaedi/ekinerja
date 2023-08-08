@@ -32,20 +32,19 @@ class DashboardController extends Controller
                 $data['table'] = $task->where('user_id', auth()->user()->id)->latest()->paginate($page);
             }
 
-
             return view('dashboard._data_table', $data);
         }
 
         $user = User::query();
         if ($level == 'kadis') {
-            $data['user'] = $user->where('level', 'sekdin')->orWhere('level', 'kabid')->orWhere('level', 'staf')->count();
+            $data['user'] = $user->where('level', '!=', 'kadis')->count();
         } elseif ($level == 'sekdin') {
-            $data['user'] = $user->where('level', 'kabid')->orWhere('level', 'staf')->count();
+            $data['user'] = $user->where('level', '!=', 'sekdin')->count();
         } else {
             $data['user'] = $user->where('bidang_id', auth()->user()->bidang_id)->count();
         }
         $data['title'] = 'Dashboard';
-        $data['riwayat_tugas'] = Task::whereDate('created_at', date('Y-m-d'))->where('user_id', auth()->user()->id)->count();
+        $data['riwayat_tugas'] = Task::where('user_id', auth()->user()->id)->count();
         return view('dashboard.index', $data);
     }
 }
