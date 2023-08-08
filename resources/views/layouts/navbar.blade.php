@@ -9,7 +9,7 @@
 
       <div class="dropdown-menu dropdown-menu-right">
         @auth
-        <a href="{{ route('admin.profile') }}" class="dropdown-item has-icon">
+        <a href="/profile" class="dropdown-item has-icon">
           <i class="far fa-user"></i> Profile
         </a>
         <div class="dropdown-divider"></div>

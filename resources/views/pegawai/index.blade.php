@@ -12,6 +12,7 @@
         <div class="col-lg-12 col-md-12 col-12 col-sm-12">
             <div class="card mb-3">
                 <div class="card-body">
+                    @if (auth()->user()->level == "kadis")
                     <div class="row">
                         <div class="col-lg-4 mb-3">
                             <input type="text" id="search" class="form-control" autofocus placeholder="Cari Pegawai..." name="q">
@@ -35,6 +36,22 @@
                             <a href="/export" class="btn btn-primary btn-block">EXPORT</a>
                         </div>
                     </div>
+                    @else
+                    <div class="row">
+                        <div class="col-lg-6 mb-3">
+                            <input type="text" id="search" class="form-control" autofocus placeholder="Cari Pegawai..." name="q">
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <select class="form-control" id="perPage">
+                                <option value="10">--PERHALAMAN--</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                              </select>
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </div>
             <div class="card">

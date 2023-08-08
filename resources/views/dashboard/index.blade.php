@@ -225,17 +225,12 @@
 
       }
 
-      // setInterval(() => {
-      //     loadData();
-      //   }, 5000);
-
-    //paginate
+   //paginate
     function loadPaginate(to) {
         page = to
         loadData()
     }
     //submit
-
     $('#store').submit(async function store(e) {
           e.preventDefault();
 

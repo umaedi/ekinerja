@@ -84,14 +84,14 @@
                     loadingsubmit(true);
                     await transAjax(param).then((res) => {
                       loadingsubmit(false);
-                        // swal({text: res.message, icon: 'success', timer: 3000,}).then(() => {
-                        //     window.location.href = '/pegawai';
-                        // });
+                        swal({text: res.message, icon: 'success', timer: 3000,}).then(() => {
+                            window.location.href = '/pegawai';
+                        });
                     }).catch((err) => {
                         loadingsubmit(false);
-                        // swal({text: err.responseJSON.message, icon: 'error', timer: 3000,}).then(() => {
-                        // window.location.href = '/pegawai/create';
-                    // });
+                        swal({text: err.responseJSON.message, icon: 'error', timer: 3000,}).then(() => {
+                        window.location.href = '/pegawai/create';
+                    });
                 });
 
                 function loadingsubmit(state){

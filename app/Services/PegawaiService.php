@@ -13,7 +13,8 @@ class PegawaiService
 
     public function store($data)
     {
-        return $this->model->create($data);
+        $insert = $this->model->create($data);
+        return $insert;
     }
 
     public function Query()
