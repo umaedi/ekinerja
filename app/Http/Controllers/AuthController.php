@@ -44,12 +44,7 @@ class AuthController extends Controller
 
     public function destroy(Request $request)
     {
-        if (auth()->guard('pegawai')->user()) {
-            Auth::guard('pegawai')->logout();
-        } else {
-            Auth::logout();
-        }
-
+        Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return response()->json([

@@ -8,23 +8,12 @@
    
 
       <div class="dropdown-menu dropdown-menu-right">
-        @auth
         <a href="/profile" class="dropdown-item has-icon">
           <i class="far fa-user"></i> Profile
         </a>
         <div class="dropdown-divider"></div>
-        <a href="javascript:void(0)" class="dropdown-item has-icon text-danger" onclick="logOut('/admin/auth/destroy')">
-          <i class="fas fa-sign-out-alt"></i> Logout
-        </a>
-        @else
-        <a href="{{ route('pegawai.profile') }}" class="dropdown-item has-icon">
-          <i class="far fa-user"></i> Profile
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="javascript:void(0)" class="dropdown-item has-icon text-danger" onclick="logOut('/pegawai/auth/destroy')">
-          <i class="fas fa-sign-out-alt"></i> Logout
-        </a>
-        @endauth
+        <a href="javascript:void(0)" class="dropdown-item has-icon text-danger" onclick="logOut('/auth/destroy')">
+          <i class="fas fa-sign-out-alt"></i> Logout</a>
       </div>
     </li>
   </ul>

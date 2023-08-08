@@ -14,7 +14,6 @@ class TugasController extends Controller
     protected $task;
     public function __construct(Task $task)
     {
-        $this->middleware('auth');
         $this->task = new TaskService($task);
     }
 
