@@ -17,7 +17,7 @@ class PegawaiController extends Controller
     protected $task;
     public function __construct(User $user, Task $task)
     {
-        $this->middleware('check.role');
+        $this->middleware('check.role')->only('index');
         $this->user = new PegawaiService($user);
         $this->task = new TaskService($task);
     }
