@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use Illuminate\Contracts\Cache\Store;
+use Illuminate\Support\Facades\Storage;
 
 class PegawaiService
 {
@@ -26,33 +28,20 @@ class PegawaiService
     {
         $model = $this->model->find($id);
 
-        if (isset($data['newimage'])) {
-            $img = $data['newimage'];
-            $image_array_1 = explode(";", $img);
-            $image_array_2 = explode(",", $image_array_1[1]);
-            $base64_decode = base64_decode($image_array_2[1]);
-            $image_name = 'img/profile/' . time() . '.png';
-            file_put_contents($image_name, $base64_decode);
-
-            if ($model->img != 'avatar.png') {
-                unlink($model->img);
+        if (isset($data['img'])) {
+            $data['img'] = Storage::putFile('public/avatar', $data['img']);
+            if ($data['img'] != 'avatar.png') {
+                Storage::delete($model->img);
             }
-            $data['img'] = $image_name;
         } else {
             $data['img'] = $model->img;
         }
 
         if (\request('password')) {
-            if (auth()->guard('pegawai')->check()) {
-                $password = request('password');
-            } else {
-                $password = bcrypt(\request()->password);
-            }
+            $data['password'] = bcrypt(\request()->password);
         } else {
-            $password = $model->password;
+            $data['password'] = $model->password;
         }
-
-        $data['password'] = $password;
 
         $model->update($data);
         return $model;

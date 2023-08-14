@@ -30,8 +30,8 @@
         <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
           <a href="/profile" style="text-decoration: none">
           <div class="card card-statistic-1">
-            <div class="card-icon bg-primary">
-             <img data-src="{{ auth()->user()->img }}" class="lazyload" alt="profile" width="100">
+            <div class="card-icon bg-primary x-avatar">
+             <img data-src="{{ \Illuminate\Support\Facades\Storage::url(auth()->user()->img) }}" class="lazyload" alt="profile" width="100">
             </div>
             <div class="card-wrap">
               <div class="card-header">
@@ -87,7 +87,7 @@
         <div class="col-lg-12 col-md-12 col-12 col-sm-12">
           <div class="card">
             <div class="card-header">
-              <h4>Laporan Tugas {{ \Carbon\Carbon::now()->isoFormat('D MMMM YYYY') }}</h4>
+              <h4>{{ \Carbon\Carbon::now()->isoFormat('D MMMM YYYY') }}</h4>
               <div class="notif">
                 <a href="/tugas/show_lists" type="button" class="btn btn-primary">
                     LIHAT SEMUA
@@ -109,7 +109,7 @@
       <a href="/profile" style="text-decoration: none">
       <div class="card card-statistic-1">
         <div class="card-icon bg-primary">
-          <img data-src="{{ auth()->user()->img }}" class="lazyload" alt="profile" width="100">
+          <img data-src="{{ \Illuminate\Support\Facades\Storage::url(auth()->user()->img) }}" class="lazyload" alt="profile" width="100">
         </div>
         <div class="card-wrap">
           <div class="card-header">
