@@ -14,9 +14,7 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-        </div>
+        <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Tutup</button>
       </div>
     </div>
 </div>
