@@ -13,7 +13,7 @@ class AuthController extends Controller
         if (auth()->guard('pegawai')->check()) {
             return redirect('/dashboard');
         } else {
-            return view('auth.index');
+            return view('login.index');
         }
     }
 
@@ -38,7 +38,7 @@ class AuthController extends Controller
             return response()->json([
                 'success'   => false,
                 'message'   => 'Email Atau Password Salah!',
-            ], 302);
+            ], 401);
         }
     }
 

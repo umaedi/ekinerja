@@ -40,7 +40,7 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-2">
                             <select class="form-control" id="bulan" name="bulan">
                                 <option value="">--PERBULAN--</option>
                                 <option value="01">Januari</option>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-md-6">
                             <select class="form-control" id="perPage" name="paginate">
-                                <option value="10">--PERHALAMAN--</option>
+                                <option value="">--PERHALAMAN--</option>
                                 <option value="10">10</option>
                                 <option value="25">25</option>
                                 <option value="50">50</option>

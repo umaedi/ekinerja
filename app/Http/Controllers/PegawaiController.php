@@ -17,7 +17,7 @@ class PegawaiController extends Controller
     protected $task;
     public function __construct(User $user, Task $task)
     {
-        $this->middleware('check.role')->only('index');
+        $this->middleware('check.role');
         $this->user = new PegawaiService($user);
         $this->task = new TaskService($task);
     }
@@ -88,5 +88,12 @@ class PegawaiController extends Controller
         $data['title']  = 'Edit Pegawai';
         $data['bidang'] = \App\Models\Bidang::get();
         return view('pegawai.show', $data);
+    }
+
+    public function destroy($id)
+    {
+        $user = $this->user->find($id);
+        $user->delete();
+        return $this->sendResponseDelete('Pegawai berhasil dihapus!');
     }
 }

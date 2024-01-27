@@ -12,8 +12,18 @@ Route::middleware('auth')->group(function () {
 
     //route for pegawai
     Route::get('/pegawai', [PegawaiController::class, 'index']);
-    Route::get('/pegawai/create', [PegawaiController::class, 'create']);
-    Route::post('/pegawai/store', [PegawaiController::class, 'store']);
+
+    //route for kadis
+    Route::middleware('kadis')->group(function () {
+        Route::get('/pegawai/create', [PegawaiController::class, 'create']);
+        Route::post('/pegawai/store', [PegawaiController::class, 'store']);
+        Route::delete('/pegawai/destroy/{id}', [PegawaiController::class, 'destroy']);
+
+        Route::get('/import', [ImportController::class, 'index']);
+        Route::post('/user/store', [ImportController::class, 'store']);
+        Route::get('/export', [ExportController::class, 'index']);
+    });
+
     Route::get('/pegawai/show/{id}', [PegawaiController::class, 'show']);
 
     //route for tugas
@@ -27,11 +37,6 @@ Route::middleware('auth')->group(function () {
     //route for profile
     Route::get('/profile', [ProfileController::class, 'index']);
     Route::put('/profile/update/{id}', [ProfileController::class, 'update']);
-
-    //route for other
-    Route::get('/import', [ImportController::class, 'index']);
-    Route::post('/user/store', [ImportController::class, 'store']);
-    Route::get('/export', [ExportController::class, 'index']);
 
     //route for logout
     Route::post('/auth/destroy', [AuthController::class, 'destroy']);

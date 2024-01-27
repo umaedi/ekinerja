@@ -218,7 +218,7 @@
           return new Promise(async function(resolve) {
             var param = {
                     method: 'POST',
-                    url: '/admin/pegawai/destory/'+id,
+                    url: '/pegawai/destroy/'+id,
                     data: {
                         '_method': 'DELETE'
                     }
@@ -227,10 +227,10 @@
           await transAjax(param).then((res) => {
                   swal({text: res.message, icon: 'success', timer: 3000,}).then(() => {
                       // loadingsubmit(false);
-                      window.location.href = '/admin/pegawai';
+                      window.location.href = '/pegawai';
                   });
               }).catch((err) => {
-                  loadingsubmit(false);
+                  // loadingsubmit(false);
                   swal({text: err.responseJSON.message, icon: 'error', timer: 3000,}).then(() => {
                   window.location.href = '/pegawai/tambah';
               });
